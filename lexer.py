@@ -1,7 +1,7 @@
 import enum
 import sys
 
-class Sunlang:
+class Lexer:
     def __init__(self, source):
         self.source = source + '\n'
         self.curChar = ''
