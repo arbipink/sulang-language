@@ -1,17 +1,17 @@
-LET a = 0
-WHILE a < 1 REPEAT
-    PRINT "Enter number of scores: "
-    INPUT a
-ENDWHILE
+JADI a = 0
+SALILA a < 1 ULANGI
+    TULIS "Asupkeun jumlah nomorna: "
+    ASUPKEUN a
+TUNTUNG_SALILA
 
-LET b = 0
-LET s = 0
-PRINT "Enter one value at a time: "
-WHILE b < a REPEAT
-    INPUT c
-    LET s = s + c
-    LET b = b + 1
-ENDWHILE
+JADI b = 0
+JADI s = 0
+TULIS "Asupkeun hiji-hiji: "
+SALILA b < a ULANGI
+    ASUPKEUN c
+    JADI s = s + c
+    JADI b = b + 1
+TUNTUNG_SALILA
 
-PRINT "Average: "
-PRINT s / a
+TULIS "Average: "
+TULIS s / a

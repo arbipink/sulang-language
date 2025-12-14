@@ -103,7 +103,7 @@ class Parser:
             self.expression()
 
     def statement(self):
-        if self.checkToken(TokenType.PRINT):
+        if self.checkToken(TokenType.TULIS):
             self.nextToken()
 
             if self.checkToken(TokenType.STRING):
@@ -114,35 +114,35 @@ class Parser:
                 self.expression()
                 self.emitter.emitLine("));")
 
-        elif self.checkToken(TokenType.IF):
+        elif self.checkToken(TokenType.LAMUN):
             self.nextToken()
             self.emitter.emit("if(")
             self.comparison()
 
-            self.match(TokenType.THEN)
+            self.match(TokenType.MANGKA)
             self.nl()
             self.emitter.emitLine("){")
 
-            while not self.checkToken(TokenType.ENDIF):
+            while not self.checkToken(TokenType.TUNTUNG_LAMUN):
                 self.statement()
-            self.match(TokenType.ENDIF)
+            self.match(TokenType.TUNTUNG_LAMUN)
             self.emitter.emitLine("}")
 
-        elif self.checkToken(TokenType.WHILE):
+        elif self.checkToken(TokenType.SALILA):
             self.nextToken()
             self.emitter.emit("while(")
             self.comparison()
 
-            self.match(TokenType.REPEAT)
+            self.match(TokenType.ULANGI)
             self.nl()
             self.emitter.emitLine("){")
 
-            while not self.checkToken(TokenType.ENDWHILE):
+            while not self.checkToken(TokenType.TUNTUNG_SALILA):
                 self.statement()
-            self.match(TokenType.ENDWHILE)
+            self.match(TokenType.TUNTUNG_SALILA)
             self.emitter.emitLine("}")
 
-        elif self.checkToken(TokenType.LABEL):
+        elif self.checkToken(TokenType.TANDA):
             self.nextToken()
 
             if self.curToken.text in self.labelsDeclared:
@@ -152,13 +152,13 @@ class Parser:
             self.emitter.emitLine(self.curToken.text + ":")
             self.match(TokenType.IDENT)
 
-        elif self.checkToken(TokenType.GOTO):
+        elif self.checkToken(TokenType.LONCAT):
             self.nextToken()
             self.labelsGotoed.add(self.curToken.text)
             self.emitter.emitLine("goto " + self.curToken.text + ";")
             self.match(TokenType.IDENT)
 
-        elif self.checkToken(TokenType.LET):
+        elif self.checkToken(TokenType.JADI):
             self.nextToken()
 
             if self.curToken.text not in self.symbols:
@@ -172,7 +172,7 @@ class Parser:
             self.expression()
             self.emitter.emitLine(";")
 
-        elif self.checkToken(TokenType.INPUT):
+        elif self.checkToken(TokenType.ASUPKEUN):
             self.nextToken()
 
             if self.curToken.text not in self.symbols:

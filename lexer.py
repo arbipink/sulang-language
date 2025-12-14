@@ -116,7 +116,7 @@ class Lexer:
 
         elif self.curChar.isalpha():
             startPos = self.curPos
-            while self.peek().isalpha():
+            while self.peek().isalpha() or self.peek() == "_":
                 self.nextChar()
 
             tokenText = self.source[startPos : self.curPos + 1]
@@ -124,7 +124,7 @@ class Lexer:
             if keyword == None:
                 token = Token(tokenText, TokenType.IDENT)
             else:
-                token = Token(token, keyword)
+                token = Token(tokenText, keyword)
 
         else:
             self.abort("Unknown Token = " + self.curChar)
@@ -140,7 +140,7 @@ class Token:
 
     def checkIfKeyword(tokenText):
         for kind in TokenType:
-            if kind.name ==tokenText and kind.value >= 100 and kind.value <= 200:
+            if kind.name == tokenText and kind.value >= 100 and kind.value <= 200:
                 return kind
         return None
 
@@ -151,17 +151,17 @@ class TokenType(enum.Enum):
     IDENT = 2
     STRING = 3
     #Keywords
-    LABEL = 101
-    GOTO = 102
-    PRINT = 103
-    INPUT = 104
-    LET = 105
-    IF = 106
-    THEN = 107
-    ENDIF = 108
-    WHILE = 109
-    REPEAT = 110
-    ENDWHILE = 111
+    TANDA = 101             # LABEL
+    LONCAT = 102            # GOTO
+    TULIS = 103             # PRINT
+    ASUPKEUN = 104          # INPUT
+    JADI = 105              # LET
+    LAMUN = 106             # IF
+    MANGKA = 107            # THEN
+    TUNTUNG_LAMUN = 108     # ENDIF
+    SALILA = 109            # WHILE
+    ULANGI = 110            # REPEAT
+    TUNTUNG_SALILA = 111    # ENDWHILE
     #Operators
     EQ = 201
     PLUS = 202
