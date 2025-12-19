@@ -1,5 +1,5 @@
 PYTHON="python3"
-COMPILER="main.py"
+COMPILER="src/main.py"
 CC="gcc"
 
 function comp {

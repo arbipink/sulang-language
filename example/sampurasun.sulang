@@ -13,5 +13,5 @@ SALILA b < a ULANGI
     JADI b = b + 1
 TUNTUNG_SALILA
 
-TULIS "Average: "
+TULIS "Rata-rata: "
 TULIS s / a
