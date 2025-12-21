@@ -1,7 +1,7 @@
 # Sampurasun
 
 ## Overview
-This project builds a binary from a Sulang source file using a provided build script.
+This project is a custom sundanese programming language
 
 ## Requirements
 - Bash
